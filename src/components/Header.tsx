@@ -1,4 +1,5 @@
 import NavComponent from "./header/NavComponent";
+import styles from "./Header.module.css";
 
 interface HeaderProps {
   title: string
@@ -6,9 +7,9 @@ interface HeaderProps {
 
 export default function Header({ title }: HeaderProps) {
   return (
-    <header className="flex justify-between items-center p-5 bg-gray-100 border-b border-gray-200">
-      <div className="blogLogo ">
-        <h1 className="text-xl font-bold">{title}</h1>
+    <header className={styles.header}>
+      <div className="blogLogo">
+        <h1 className={styles.title}>{title}</h1>
       </div>
       <NavComponent />
     </header>
