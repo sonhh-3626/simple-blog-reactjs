@@ -19,12 +19,19 @@ cd simple-blog-reactjs
 npm install
 ```
 
-### 3. Run local development server
+### 3. Install @tailwind
+```bash
+npm install -D tailwindcss postcss autoprefixer
+```
+
+- Check files `tailwind.config.js` and `postcss.config.js`.
+
+### 4. Run local development server
 ```bash
 npm run dev
 ```
 
-### 4. Build for production (optional)
+### 5. Build for production (optional)
 ```bash
 npm run build
 ```
