@@ -14,6 +14,8 @@ i18n.use(initReactI18next).init({
         read_more: "Read more",
         by: "By",
         on: "on ",
+        error_read_from_local_storage: "Error reading from localStorage:",
+        error_write_to_local_storage :"Error writing to localStorage:",
       }
     },
     vi: {
@@ -25,6 +27,8 @@ i18n.use(initReactI18next).init({
         read_more: "Đọc thêm",
         by: "Bởi",
         on: "vào lúc ",
+        error_read_from_local_storage: "Lỗi đọc dữ liệu  từ Local Storage:",
+        error_write_to_local_storage :"Lỗi viết dữ liệu vào Local Storage:",
       }
     }
   }
