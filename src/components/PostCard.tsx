@@ -1,3 +1,8 @@
+import { useTranslation } from "react-i18next";
+
+import "./PostCard.css";
+import Button from "./Button";
+
 export interface Post {
   id: number,
   title: string,
@@ -16,24 +21,25 @@ export interface PostCardProps {
 }
 
 export default function PostCard({ id, title, author, date, excerpt }: PostCardProps) {
+  const { t } = useTranslation();
+
   return (
-    <div className="max-w-md mx-auto my-4 bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300">
-      <div className="p-6 md:p-8 flex flex-col">
-        <h2 className="text-2xl font-semibold text-gray-900 hover:text-blue-600 hover:underline transition-colors duration-200">
+    <div className="postCard">
+      <div className="postCardContent">
+        <h2 className="postCardTitle">
           {title}
         </h2>
 
-        <p className="mt-2 text-sm text-gray-500">
-          By <span className="font-medium">{author}</span> on {date.toLocaleDateString()}
+        <p className="postCardMeta">
+          {t("by")} <span className="postCardAuthor">{author}</span> {t("on")}
+          {date.toLocaleDateString()}
         </p>
 
-        <p className="mt-4 text-gray-700 line-clamp-3">
+        <p className="postCardExcerpt">
           {excerpt}
         </p>
 
-        <button className="mt-4 self-start px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200">
-          Read More
-        </button>
+        <Button text={t("read_more")} />
       </div>
     </div>
   )

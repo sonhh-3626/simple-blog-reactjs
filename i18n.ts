@@ -10,7 +10,10 @@ i18n.use(initReactI18next).init({
         home: "Home",
         about: "About",
         current_posts: "Current posts",
-        no_post: "No posts."
+        no_post: "No posts.",
+        read_more: "Read more",
+        by: "By",
+        on: "on ",
       }
     },
     vi: {
@@ -18,7 +21,10 @@ i18n.use(initReactI18next).init({
         home: "Trang chủ",
         about: "Về trang web",
         current_posts: "Các bài viết mới nhất",
-        no_post: "Không có bài viết nào."
+        no_post: "Không có bài viết nào.",
+        read_more: "Đọc thêm",
+        by: "Bởi",
+        on: "vào lúc ",
       }
     }
   }
