@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 import Header from "./components/Header";
@@ -6,7 +7,34 @@ import { initialPosts } from './data/initialPosts';
 
 function App() {
   const { t } = useTranslation();
-  const posts: Post[] = initialPosts || [];
+  const [posts, setPosts] = useState<Post[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+
+  useEffect(() => {
+    try {
+      let dataFromLocalStorage = localStorage.getItem("posts");
+      if(dataFromLocalStorage) {
+        setPosts(JSON.parse(dataFromLocalStorage));
+      } else {
+        setPosts(initialPosts);
+      }
+    } catch (error) {
+      console.error(t("error_read_from_local_storage"), error);
+      setPosts(initialPosts);
+    } finally {
+      setLoading(false);
+    }
+  }, [])
+
+  useEffect(() => {
+    if(!loading) {
+      try {
+        localStorage.setItem("posts", JSON.stringify(posts));
+      } catch (error) {
+        console.error(t("error_write_to_local_storage"), error);
+      }
+    }
+  }, [posts, loading]);
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -23,7 +51,7 @@ function App() {
               id={post.id}
               title={post.title}
               author={post.author}
-              date={post.date}
+              date={new Date(post.date)}
               excerpt={post.excerpt}
             />
           )) : <h1>{t("no_post")}</h1>}
