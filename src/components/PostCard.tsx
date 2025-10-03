@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 
 import "./PostCard.css";
 import Button from "./Button";
@@ -22,6 +23,11 @@ export interface PostCardProps {
 
 export default function PostCard({ id, title, author, date, excerpt }: PostCardProps) {
   const { t } = useTranslation();
+  const navigate = useNavigate();
+
+  const handleOnClick = () => {
+    navigate(`post/${id}`);
+  }
 
   return (
     <div className="postCard">
@@ -39,7 +45,7 @@ export default function PostCard({ id, title, author, date, excerpt }: PostCardP
           {excerpt}
         </p>
 
-        <Button text={t("read_more")} />
+        <Button text={t("read_more")} handleClick={handleOnClick} />
       </div>
     </div>
   )

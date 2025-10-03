@@ -1,5 +1,5 @@
 .postCard {
-  max-width: 28rem;
+  width: 100%;
   margin: 1rem auto;
   background-color: var(--color-white);
   border-radius: 1rem;
@@ -27,7 +27,6 @@
 
 .postCardTitle:hover {
   color: var(--color-blue-600);
-  text-decoration: underline;
 }
 
 .postCardMeta {
